@@ -1,0 +1,157 @@
+Data Structures
+Data Structures are ways to organize, manage, and store data in a computer so that it can be accessed and modified efficiently. 
+They are the building blocks of efficient software development and are used to handle large amounts of data.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Types of Data Structures
+
+                Primitive Data Structures:
+Integers
+Floats
+Characters
+Booleans
+
+                Non-Primitive Data Structures:
+Arrays: Contiguous blocks of memory.
+
+Linked Lists: Nodes linked using pointers.
+
+Stacks: Last In First Out (LIFO) data structure.
+
+Queues: First In First Out (FIFO) data structure.
+
+Trees: Hierarchical structures with nodes.
+
+Graphs: Sets of connected nodes.
+
+Hash Tables: Key-value pairs for fast lookups.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+Algorithms
+Algorithms are step-by-step procedures or formulas for solving problems. They take input, process it, and produce output. 
+Algorithms are used for data manipulation, searching, sorting, and many other tasks.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Types of Algorithms
+
+                Searching Algorithms:
+Linear Search
+Binary Search
+
+                Sorting Algorithms:
+Bubble Sort
+Quick Sort
+Merge Sort
+Insertion Sort
+
+                Dynamic Programming Algorithms:
+Fibonacci Sequence
+Knapsack Problem
+
+                Graph Algorithms:
+Depth First Search (DFS)
+Breadth First Search (BFS)
+Dijkstra's Algorithm
+
+                Greedy Algorithms:
+Kruskal's Algorithm
+Prim's Algorithm
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+
+                Linear Data Structures
+
+Array
+Description: A collection of elements identified by index or key.
+Operations: Access (O(1)), Search (O(n)), Insertion (O(n)), Deletion (O(n))
+Use Cases: Used for storing multiple items of the same type, quick access to elements using an index.
+
+Linked List
+Description: A collection of nodes, each containing data and a reference to the next node.
+Types: Singly Linked List, Doubly Linked List, Circular Linked List
+Operations: Access (O(n)), Search (O(n)), Insertion (O(1)), Deletion (O(1))
+Use Cases: Dynamic memory allocation, implementing stacks and queues.
+
+Stack
+Description: A collection of elements with Last In First Out (LIFO) access.
+Operations: Push (O(1)), Pop (O(1)), Peek (O(1))
+Use Cases: Expression evaluation, backtracking algorithms, function call management.
+
+Queue
+Description: A collection of elements with First In First Out (FIFO) access.
+Types: Simple Queue, Circular Queue, Priority Queue, Deque
+Operations: Enqueue (O(1)), Dequeue (O(1)), Peek (O(1))
+Use Cases: Scheduling algorithms, buffering data streams, breadth-first search.
+
+Deque (Double-Ended Queue)
+Description: A collection of elements that supports insertion and deletion at both ends.
+Operations: Insert Front (O(1)), Insert Rear (O(1)), Delete Front (O(1)), Delete Rear (O(1))
+Use Cases: Palindrome checking, implementing other complex data structures.
+
+                Non-Linear Data Structures
+
+Tree
+Description: A hierarchical structure consisting of nodes, with a single root and multiple levels of children nodes.
+Types: Binary Tree, Binary Search Tree, AVL Tree, Red-Black Tree, B-Tree
+Operations: Insertion (O(log n)), Deletion (O(log n)), Search (O(log n))
+Use Cases: Hierarchical data representation, indexing databases, file systems.
+
+Binary Tree
+Description: A tree in which each node has at most two children.
+Special Types: Full Binary Tree, Complete Binary Tree, Perfect Binary Tree
+Use Cases: Arithmetic expressions, decision processes, hierarchical data storage.
+
+Binary Search Tree (BST)
+Description: A binary tree with the property that all left descendants of a node are less than the node, and all right descendants are greater.
+Operations: Insertion (O(log n)), Deletion (O(log n)), Search (O(log n))
+Use Cases: Dynamic sets, lookup tables, associative arrays.
+
+Heap
+Description: A complete binary tree that maintains a specific order property.
+Types: Max-Heap, Min-Heap
+Operations: Insertion (O(log n)), Deletion (O(log n)), Peek (O(1))
+Use Cases: Priority queues, graph algorithms (Dijkstra's, Prim's).
+
+Graph
+Description: A collection of nodes (vertices) and edges connecting pairs of nodes.
+Types: Directed, Undirected, Weighted, Unweighted
+Operations: Add Vertex (O(1)), Add Edge (O(1)), Search (O(V+E))
+Use Cases: Network representation, social networks, web page linking, routing algorithms.
+
+Trie (Prefix Tree)
+Description: A tree-like data structure used to store dynamic sets of strings.
+Operations: Insertion (O(n)), Deletion (O(n)), Search (O(n))
+Use Cases: Autocomplete, spell checkers, IP routing.
+
+Hash Table
+Description: A data structure that maps keys to values using a hash function.
+Operations: Insertion (O(1)), Deletion (O(1)), Search (O(1))
+Use Cases: Fast lookups, implementing associative arrays, database indexing.
+
+                Specialized Data Structures
+
+Bloom Filter
+Description: A probabilistic data structure used to test whether an element is a member of a set.
+Operations: Insertion (O(k)), Search (O(k)) where k is the number of hash functions.
+Use Cases: Network data, web caches, databases for quick lookups with space efficiency.
+
+Segment Tree
+Description: A tree data structure used for storing intervals or segments.
+Operations: Range Query (O(log n)), Update (O(log n))
+Use Cases: Range queries, range updates in arrays.
+
+Fenwick Tree (Binary Indexed Tree)
+Description: A tree data structure that provides efficient methods for cumulative frequency tables.
+Operations: Update (O(log n)), Query (O(log n))
+Use Cases: Cumulative frequency tables, range sum queries.
+

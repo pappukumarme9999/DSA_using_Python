@@ -1,0 +1,19 @@
+Reversal
+Detecting a Loop
+Finding the Middle Element
+Merging Two Sorted Lists
+Finding the Nth Node from End
+Removing Duplicates
+Pairwise Swap
+Intersection Point
+Union and Intersection
+Merging two sorted linked lists
+Merge sort for linked list
+Quick sort for linked list
+Splitting a linked list into two halves
+Alternating split of a linked list
+Rearranging linked list in-place (rearranging odd and even positioned nodes)
+
+
+Doubly Linked List
+Circular Linked List
