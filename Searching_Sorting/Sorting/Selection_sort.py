@@ -10,6 +10,6 @@ def selection_sort(arr):
 
 arr = [10,19,8,36,7,55,400,53,20]
 print(selection_sort(arr))
-
+print("-"*50)
 # arr2 = [2,3,4,5,7,6,8,9,10]
 # print(selection_sort(arr2))

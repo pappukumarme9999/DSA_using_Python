@@ -42,23 +42,6 @@ def monkey_sort(arr):
 def reverse_order(arr):
     if is_sorted(arr):
         return arr[::-1]
-    
-     
-
-'''
-# convert decreasing to increasing 
-def convert_to_increasing(arr):
-    if is_sorted_decreasing(arr):
-        return reverse_order(arr)
-
-    
-# convert increasing to decreasing
-def convert_to_decreasing(arr):
-    if is_sorted_increasing(arr):
-        return reverse_order(arr)
-'''
-
-
 
 
 arr1 = [2,3,4,5,6,7,8,9,10]

@@ -12,7 +12,7 @@ def is_sorted(arr):
 # this function will always sort the array in ascending order 
 # because it validates the above codition "is_sorted" which checks for increasing order
 def monkey_sort(arr):
-    while not is_sorted(arr):
+    while is_sorted(arr) == False:
         random.shuffle(arr)
     return arr
     
