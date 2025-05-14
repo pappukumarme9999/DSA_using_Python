@@ -1,0 +1,19 @@
+| Approach  | Time Complexity | Space Complexity  |
+| --------- | --------------- | ----------------- |
+| Iterative | O(n)            | O(1)              |
+| Recursive | O(n)            | O(n) (call stack) |
+
+| Variant                     | When to Use                            |
+| --------------------------- | -------------------------------------- |
+| Basic Iterative             | Most efficient, for full list reversal |
+| Recursive                   | For elegance or teaching               |
+| Sublist Reversal            | In-place partial reversal              |
+| K-Group Reversal            | Advanced interview challenges          |
+| Doubly Linked List Reversal | For bi-directional lists               |
+
+
+| Linked List Type   | Reversal Logic                        | Time Complexity | Space Complexity |
+| ------------------ | ------------------------------------- | --------------- | ---------------- |
+| Doubly Linked List | Swap `.prev` and `.next`              | O(n)            | O(1)             |
+| Circular Singly LL | Same as singly LL + fix `.next`       | O(n)            | O(1)             |
+| Circular Doubly LL | Swap `.next` and `.prev`, update head | O(n)            | O(1)             |
