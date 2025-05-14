@@ -1,66 +1,80 @@
+"""
+Jump Search Algorithm
+
+Overview:
+    - Designed for sorted arrays
+    - Divides the array into blocks and performs a block-wise jump
+    - After identifying the block, it performs linear search within that block
+
+Time Complexity:
+    - Best: O(1)
+    - Average/Worst: O(√n)
+
+Space Complexity: O(1)
+
+Applications:
+    - Sorted arrays with random access (like arrays or lists)
+    - Efficient alternative to linear search for large sorted data
+
+Requirements:
+    - Array must be sorted
+"""
+
 import math
 
-def jump_search(arr, x):
+def jump_search(arr, target):
+    """
+    Perform jump search on a sorted array.
 
+    :param arr: Sorted list of elements
+    :param target: Value to search
+    :return: Index of target if found, else -1
+    """
     n = len(arr)
-    previous = 0
+    if n == 0:
+        return -1
+
     step = int(math.sqrt(n))
+    prev = 0
 
-    #  index accessed within the array does not exceed the array length
-    while arr[min(step, n) - 1] < x:
-        # min(step, n) -> This ensures that if "step" exceeds "n", it will use "n" instead.
-        previous = step
-        step += int(math.sqrt(n))
-        if previous >= n:
-            return -1
-        
-    # Doing a linear search for x in block beginning with prev
-    while arr[previous] < x:
-        previous += 1
-        if previous == min(step, n):
-            return -1
-        
-    # If element is found  
-    if arr[previous] == x:
-            return previous
-    
-    return -1
-    
-arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-x = 7
-index = jump_search(arr, x)
-print(f"Number {x} is at index {index}")
-
-
-
-'''
-
-import math
-
-def jump_search(arr, item):
-    length = len(arr)
-    step = int(math.sqrt(length))
-    prev = 0 
-    
-    while prev < length and arr[min(step, length) - 1] < item:
+    # Finding the block where the element may be present
+    while prev < n and arr[min(step, n) - 1] < target:
         prev = step
-        step += int(math.sqrt(length))
-        if prev >= length:
-            return -1 
-    
-    while prev < min(step, length) and arr[prev] < item:
+        step += int(math.sqrt(n))
+        if prev >= n:
+            return -1
+
+    # Linear search within the block
+    while prev < min(step, n) and arr[prev] < target:
         prev += 1
-        if prev == min(step, length):
-            return -1 
-    
-    if prev < length and arr[prev] == item:
+
+    if prev < n and arr[prev] == target:
         return prev
-    
+
     return -1
 
-arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-x = 7
-index = jump_search(arr, x)
-print(f"Number {x} is at index {index}")
 
-'''
+# ------------------------------- TESTING -------------------------------
+import unittest
+
+class TestJumpSearch(unittest.TestCase):
+    def setUp(self):
+        self.sorted_list = list(range(0, 100, 5))  # [0, 5, 10, ..., 95]
+
+    def test_found(self):
+        self.assertEqual(jump_search(self.sorted_list, 0), 0)
+        self.assertEqual(jump_search(self.sorted_list, 25), 5)
+        self.assertEqual(jump_search(self.sorted_list, 95), 19)
+
+    def test_not_found(self):
+        self.assertEqual(jump_search(self.sorted_list, 3), -1)
+        self.assertEqual(jump_search(self.sorted_list, 97), -1)
+
+    def test_edge_cases(self):
+        self.assertEqual(jump_search([], 5), -1)
+        self.assertEqual(jump_search([10], 10), 0)
+        self.assertEqual(jump_search([10], 5), -1)
+
+
+if __name__ == "__main__":
+    unittest.main()
