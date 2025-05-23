@@ -1,0 +1,159 @@
+"dunder methods"! It's the common name for methods in Python that have double underscores (double underscore before and after the method name). The "dunder" part is just a shortened way of saying "double underscore."
+
+
+These methods are also sometimes called magic methods because they often get implicitly invoked by Python's syntax or built-in functions. They allow your custom classes to interact with Python's language features in a natural and intuitive way. By implementing these methods, you can define how your objects behave with operators, built-in functions, and various language constructs.
+
+
+
+Here's a list of some of the most common and important dunder methods in Python, categorized for better understanding:
+
+
+
+Object Creation and Initialization:
+
+__new__(cls, *args, **kwargs): Called before __init__() to create the instance of the class. It's responsible for returning the new object.
+__init__(self, *args, **kwargs): Called after the instance has been created by __new__(). It's used to initialize the object's attributes.
+__del__(self): Called when the object is about to be garbage collected (destroyed). Use with caution as its behavior can be unpredictable.
+
+
+
+String Representation:
+
+__str__(self): Returns a human-readable string representation of the object. Used by str() and print().
+__repr__(self): Returns an unambiguous string representation of the object, ideally one that could be used to recreate the object. Used by repr() and in the interactive interpreter.
+__format__(self, format_spec): Allows for custom formatting of the object using the format() function or f-strings.
+
+
+
+Comparison Methods:
+
+__lt__(self, other): Implements the less than operator (<).
+__le__(self, other): Implements the less than or equal to operator (<=).
+__eq__(self, other): Implements the equal to operator (==).
+__ne__(self, other): Implements the not equal to operator (!=).
+__gt__(self, other): Implements the greater than operator (>).
+__ge__(self, other): Implements the greater than or equal to operator (>=).
+
+
+
+Arithmetic Operations:
+
+__add__(self, other): Implements addition (+).
+__sub__(self, other): Implements subtraction (-).
+__mul__(self, other): Implements multiplication (*).
+__truediv__(self, other): Implements true division (/).
+__floordiv__(self, other): Implements floor division (//).
+__mod__(self, other): Implements the modulo operator (%).
+__pow__(self, other[, modulo]): Implements exponentiation (**).
+__lshift__(self, other): Implements left bit shift (<<).
+__rshift__(self, other): Implements right bit shift (>>).
+__and__(self, other): Implements bitwise AND (&).
+__or__(self, other): Implements bitwise OR (|).
+__xor__(self, other): Implements bitwise XOR (^).
+
+
+
+Reverse Arithmetic Operations:
+
+These are called if the left operand does not implement the corresponding arithmetic operation or its __rmat__ method returns NotImplemented.
+
+__radd__(self, other)
+__rsub__(self, other)
+__rmul__(self, other)
+__rtruediv__(self, other)
+__rfloordiv__(self, other)
+__rmod__(self, other)
+__rpow__(self, other)
+__rlshift__(self, other)
+__rrshift__(self, other)
+__rand__(self, other)
+__ror__(self, other)
+__rxor__(self, other)
+
+
+
+In-place Arithmetic Operations:
+
+These are used for operations like +=, -=, etc.
+
+__iadd__(self, other)
+__isub__(self, other)
+__imul__(self, other)
+__itruediv__(self, other)
+__ifloordiv__(self, other)
+__imod__(self, other)
+__ipow__(self, other)
+__ilshift__(self, other)
+__irshift__(self, other)
+__iand__(self, other)
+__ior__(self, other)
+__ixor__(self, other)
+
+
+
+Container Type Methods (for sequences, mappings, etc.):
+
+__len__(self): Returns the length of the container. Used by len().
+__getitem__(self, key): Returns the item at the given key (for sequences and mappings). Used by indexing (e.g., obj[key]).
+__setitem__(self, key, value): Sets the item at the given key (for mutable sequences and mappings). Used by assignment with indexing (e.g., obj[key] = value).
+__delitem__(self, key): Deletes the item at the given key. Used by del obj[key].
+__iter__(self): Returns an iterator object for the container. Used by loops and other iteration contexts.
+__next__(self): Returns the next item from the iterator. Called by the next() function.
+__contains__(self, item): Checks if an item is present in the container. Used by the in operator.
+__reversed__(self): Returns a reversed iterator for the container. Used by reversed().
+
+
+
+Attribute Access Control:
+
+__getattr__(self, name): Called when an attribute lookup fails for the default mechanisms. Can be used to dynamically provide attributes.
+__setattr__(self, name, value): Called when an attribute is assigned a value. Allows you to customize attribute setting.
+__delattr__(self, name): Called when an attribute is deleted using del obj.name.
+__getattribute__(self, name): Called for every attribute access. Be cautious when implementing this, as it can lead to infinite recursion if not handled properly.
+
+
+
+Context Management:
+
+__enter__(self): Defines what happens when entering a with statement. Should return the resource managed by the context.
+__exit__(self, exc_type, exc_value, traceback): Defines what happens when exiting a with statement. Can handle exceptions that occurred within the with block.
+
+
+
+Descriptor Protocol:
+
+These methods are part of the descriptor protocol, which allows you to customize attribute access on classes.
+
+__get__(self, instance, owner): Called when the descriptor's value is accessed.
+__set__(self, instance, value): Called when the descriptor's value is set.
+__delete__(self, instance): Called when the descriptor's value is deleted.
+
+
+
+Callable Objects:
+
+__call__(self, *args, **kwargs): Allows instances of your class to be called like regular functions.
+
+
+
+Hashing and Boolean Context:
+
+__hash__(self): Should return an integer hash value for the object. Used when the object is used in hash-based collections like dictionaries and sets. Objects that are equal should have the same hash value.
+__bool__(self): Returns True or False for boolean evaluation of the object (e.g., in if obj:). If not defined, Python looks for __len__() and considers the object False if its length is zero, and True otherwise.
+
+
+
+Pickling and Copying:
+
+__reduce__(self): Defines how an object should be pickled (serialized).
+__reduce_ex__(self, protocol): Similar to __reduce__() but for different pickling protocols.
+__copy__(self): Implements the behavior for shallow copies (using copy.copy()).
+__deepcopy__(self, memo): Implements the behavior for deep copies (using copy.deepcopy()).
+
+
+
+Metaclasses:
+
+__new__(mcs, name, bases, namespace): Called on the metaclass to create a new class.
+__init__(cls, name, bases, namespace): Called after the class has been created.
+__call__(cls, *args, **kwargs): Called when an instance of the class is created (i.e., when you call the class itself).
